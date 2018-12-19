@@ -1,4 +1,4 @@
-package com.codegym.cms;
+package com.codegym.blog;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

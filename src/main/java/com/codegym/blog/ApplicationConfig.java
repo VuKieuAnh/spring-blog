@@ -1,9 +1,9 @@
-package com.codegym.cms;
+package com.codegym.blog;
 
-//import com.codegym.cms.repository.CustomerRepository;
-//import com.codegym.cms.repository.impl.CustomerRepositoryImpl;
-//import com.codegym.cms.service.CustomerService;
-//import com.codegym.cms.service.impl.CustomerServiecImpl;
+//import com.codegym.blog.repository.CustomerRepository;
+//import com.codegym.blog.repository.impl.CustomerRepositoryImpl;
+//import com.codegym.blog.service.CustomerService;
+//import com.codegym.blog.service.impl.CustomerServiecImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -34,7 +34,7 @@ import java.util.Properties;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@ComponentScan("com.codegym.cms")
+@ComponentScan("com.codegym.blog")
 public class ApplicationConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
@@ -60,7 +60,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     public SpringResourceTemplateResolver templateResolver(){
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
-        templateResolver.setPrefix("/WEB-INF/views");
+        templateResolver.setPrefix("/WEB-INF/views/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML);
         return templateResolver;
@@ -91,7 +91,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[]{"com.codegym.cms.model"});
+        em.setPackagesToScan(new String[]{"com.codegym.blog.model"});
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -103,7 +103,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/cms");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/blog");
         dataSource.setUsername( "root" );
         dataSource.setPassword( "123456" );
         return dataSource;
