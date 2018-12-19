@@ -1,5 +1,6 @@
-package com.codegym.blog;
+package com.codegym.blogs;
 
+import com.codegym.blogs.ApplicationConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

@@ -1,4 +1,4 @@
-package com.codegym.blog.controller;
+package com.codegym.blogs.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.codegym.blog;
+package com.codegym.blogs;
 
 //import com.codegym.blog.repository.CustomerRepository;
 //import com.codegym.blog.repository.impl.CustomerRepositoryImpl;
@@ -34,7 +34,7 @@ import java.util.Properties;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@ComponentScan("com.codegym.blog")
+@ComponentScan("com.codegym.blogs")
 public class ApplicationConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
@@ -91,7 +91,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[]{"com.codegym.blog.model"});
+        em.setPackagesToScan(new String[]{"com.codegym.blogs.model"});
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
