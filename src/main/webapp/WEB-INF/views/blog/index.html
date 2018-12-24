@@ -10,12 +10,16 @@
 <table border="1">
     <tr>
         <th>Title</th>
+        <th>Content</th>
+        <th>Name</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
     <th:block th:each="blog : ${listBlog}">
         <tr>
             <td th:text="${blog.title}"></td>
+            <td th:text="${blog.content}"></td>
+            <td th:text="${blog.category.name}"></td>
             <td><a th:href="@{/edit-blog/__${blog.id}__ }">Edit</a></td>
             <td><a th:href="@{/delete-blog/__${blog.id}__ }">Delete</a></td>
         </tr>

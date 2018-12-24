@@ -1,7 +1,9 @@
 package com.codegym.blogs.controller;
 
 import com.codegym.blogs.model.Blog;
+import com.codegym.blogs.model.Category;
 import com.codegym.blogs.service.BlogService;
+import com.codegym.blogs.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class BlogController {
     @Autowired
     BlogService blogService;
+
+    @Autowired
+    CategoryService categoryService;
+
+    @ModelAttribute("categories")
+    public Iterable<Category> categories(){
+        return categoryService.findAll();
+    }
 
     @GetMapping(value = "")
     public ModelAndView index(){
